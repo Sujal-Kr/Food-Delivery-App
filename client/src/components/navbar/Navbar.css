@@ -1,0 +1,8 @@
+.active{
+    padding-bottom: 0.2rem;
+    border-bottom: 0.2rem solid tomato;
+}
+nav a{
+    transition: all ;
+    transition-duration: 300ms;
+}
