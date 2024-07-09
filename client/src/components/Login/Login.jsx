@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../../assets/frontend_assets/assets'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { StoreContext } from '../../Context/store.context'
 
 const Login = ({ setShowLogin }) => {
-  const url = 'http://localhost:6969'
+  const { url, setToken } = useContext(StoreContext)
   const [currState, setCurrentState] = useState("Sign Up")
   const [credetials, setCredentials] = useState({
-    name:"",
-    email:"",
-    password:"",
+    name: "",
+    email: "",
+    password: "",
   })
   const handleChange = (e) => {
     const key = e.target.name
@@ -20,36 +21,27 @@ const Login = ({ setShowLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    if (currState === 'Sign Up') {
-      const res =await axios.post(`${url}/api/user/signup`, {
-        name:credetials.name,
-        email:credetials.email,
-        password:credetials.password
-      })
-      if (res.data.success) {
-        toast.success('user registered successfully')
-        setCurrentState('Login')
-      }else{
-        toast.error(`error:${res.data.message}`)
-      }
-    }else{
-      const res = await axios.post(`${url}/api/user/login`, {
-        email:credetials.email,
-        password:credetials.password
-      })
+    let newUrl = url
 
-      if(res.data.success) {
-        toast.success("user logged in successfully!!")
-        setShowLogin(false)
-      }
-      else{
-        toast.error("user logged in failed")
-
-      }
+    if (currState === "Sign Up") {
+      newUrl += "/api/user/signup"
+    } else {
+      newUrl += "/api/user/login"
     }
+    const res = await axios.post(newUrl, credetials)
+    if (res.data.success) {
+      toast.success(res.data.message)
+      if(res.data.token){
+        localStorage.setItem('token', res.data.token)
+        setToken(res.data.token)
+        setShowLogin(false)
+      }else{
+        setCurrentState("Login")
+      }
 
-
+    } else {
+      toast.error(res.data.message)
+    }
   }
   return (
     <div className='absolute z-10 w-[80%] h-full grid  text-xs      '>
@@ -76,8 +68,8 @@ const Login = ({ setShowLogin }) => {
         }
         {
           currState === "Sign Up" ?
-            <p>Create a new account? <span onClick={() => setCurrentState("Login")} className='cursor-pointer'>Click Here</span> </p> :
-            <p>Allready have an account ?<span onClick={() => setCurrentState("Sign Up")} className='cursor-pointer'>Login here</span></p>
+            <p>Create a new account? <span onClick={() => setCurrentState("Login")} className='cursor-pointer text-orange-400'>Click Here</span> </p> :
+            <p>Allready have an account ?<span onClick={() => setCurrentState("Sign Up")} className='cursor-pointer text-orange-400'>Login here</span></p>
         }
       </form>
     </div>

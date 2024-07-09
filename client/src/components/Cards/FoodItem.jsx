@@ -1,19 +1,20 @@
-import { useEffect } from 'react'
 import React from 'react'
+import { useEffect } from 'react'
 import { assets } from '../../assets/frontend_assets/assets'
 import { StoreContext } from '../../Context/store.context';
 
 const FoodItem = ({ food }) => {
-    const { cartItems, addToCart, removeFromCart } = React.useContext(StoreContext)
-    
+    const { cartItems, addToCart, removeFromCart, url } = React.useContext(StoreContext)
+
+
     return (
         <div className='food-item shadow rounded-t-xl overflow-hidden '>
             <div className='relative'>
-                <img src={food.image} alt="" className='' />
+                <img src={url + "/images/" + food.image} alt="" className='' />
                 <div className='p-2 absolute right-3 top-36'>
                     {
-                        
-                        !cartItems[food._id]  ?
+
+                        !cartItems[food._id] ?
                             <img onClick={() => addToCart(food._id)} src={assets.add_icon_white} className='object-cover ' /> :
                             <div className='flex  items-center gap-2 bg-white  p-1 rounded-full    '>
                                 <img src={assets.remove_icon_red} onClick={() => removeFromCart(food._id)} alt="" />
