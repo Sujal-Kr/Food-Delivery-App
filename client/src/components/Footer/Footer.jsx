@@ -3,8 +3,8 @@ import { assets } from '../../assets/frontend_assets/assets'
 
 const Footer = () => {
     return (
-        <div className='bg-gray-700 text-white p-10   '>
-            <div className='footer flex gap-10 justify-between py-4'>
+        <div className='bg-gray-700 text-white p-10 mt-40   '>
+            <div className='footer flex flex-wrap gap-10 justify-between py-4'>
                 <div className='flex flex-col gap-4 items-start '>
                     <img src={assets.logo} alt="" />
                     <p className='max-w-md'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, perspiciatis!</p>

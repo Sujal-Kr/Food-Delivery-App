@@ -5,7 +5,6 @@ const protectRoute=async(req,res,next)=>{
 
     const token=req.headers.token
    
-    console.log("Token:",token)
     if(!token){
         return res.json({
             success: false,
@@ -15,7 +14,6 @@ const protectRoute=async(req,res,next)=>{
         try{
             const payload=jwt.verify(token,process.env.JWT_KEY)
             if(payload){
-                console.log("Payload",payload);
                 req.id=payload.payload
                 next()
             }else{

@@ -1,11 +1,11 @@
-.app{
+.main-content{
   padding:0 10rem;
   margin:auto ;
 }
 
 @media screen and (max-width:778px){
   
-  .app{
+  .main-content{
     padding: 0 2rem;
   }
 

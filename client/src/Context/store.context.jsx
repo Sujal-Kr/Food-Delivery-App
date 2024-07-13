@@ -36,8 +36,6 @@ function StoreContextProvider({children}) {
 
         if(token){
             const res=await axios.post(`${url}/api/cart/remove`,{id},{headers: {token}})
-            console.log(res.data.data)
-
         }
     }
     const getCartTotal=()=>{
@@ -46,7 +44,6 @@ function StoreContextProvider({children}) {
            const food= foodList.find((item)=>item._id==key)
            total += food.price*cartItems[key]
         }
-        console.log(total);
         return total
     }
 

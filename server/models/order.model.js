@@ -20,7 +20,7 @@ const orderSchema = new mongoose.Schema({
     status:{
         type:String,
         default:"Food Processing",
-        enum:["Food Processing", "Delivered"]
+        enum:["Food Processing", "Out For Delivery", "Delivered"]   
     },
     date:{
         type:Date,

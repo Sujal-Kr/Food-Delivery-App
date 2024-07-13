@@ -29,11 +29,11 @@ const Navbar = ({ setShowLogin }) => {
   }
 
   return (
-    <nav className='flex justify-between py-6 items-center'>
+    <nav className='flex justify-between py-6 px-4 sm:px-10 lg:px-40 items-center'>
       <div className="nav-head">
         <img src={assets.logo} alt="" />
       </div>
-      <div className="nav-list gap-5 hidden md:flex">
+      <div className="nav-list  gap-5 hidden md:flex">
         <Link to='/' onClick={() => setMenu('home')} className={menu === 'home' ? 'active' : ''}>Home</Link>
         <Link to='/menu' onClick={() => setMenu('menu')} className={menu === 'menu' ? 'active' : ''}>Menu</Link>
         <Link to='/mobile-app' onClick={() => setMenu('app')} className={menu === 'app' ? 'active' : ''}>Mobile App</Link>
@@ -61,7 +61,7 @@ const Navbar = ({ setShowLogin }) => {
               <img src={assets.profile_icon} alt="" className='cursor-pointer' />
               <ul className={`absolute right-0 mt-2 z-10 bg-white flex-col border rounded-md shadow-lg w-40 ${option ? 'flex' : 'hidden'}`}>
 
-                <li className='flex items-center p-2 hover:bg-gray-100'>
+                <li onClick={()=>navigate('/myorders')} className='flex items-center p-2 hover:bg-gray-100'>
                   <img src={assets.bag_icon} alt="" className='mr-2' />
                   <p>Orders</p>
                 </li>

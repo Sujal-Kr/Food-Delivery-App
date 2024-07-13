@@ -43,11 +43,11 @@ const Cart = () => {
             </div>
             <div className='border-b flex justify-between my-2 py-2'>
               <p>Delivery Fee</p>
-              <p>{20}</p>
+              <p>{getCartTotal()!=0?20: 0}</p>
             </div>
             <div className=' flex justify-between my-2 py-2'>
               <p>Total</p>
-              <p>{getCartTotal()+20|| 20}</p>
+              <p>{getCartTotal()!=0?getCartTotal()+20: 0}</p>
             </div>
           </div>
           <button className='px-8 py-2  bg-orange-400 text-white shadow rounded text-xs'><Link to='/order'>Proceed to Checkout</Link></button>
