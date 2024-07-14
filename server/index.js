@@ -19,7 +19,11 @@ app.listen(PORT,()=>{
     console.log(`Listening on port ${PORT}`);
 })
 
-
+app.use('/',(req,res)=>{
+    res.send({
+        message:"hello world"
+    })
+})
 const foodRouter=require('./routes/food.route')
 app.use('/api/food',foodRouter)
 app.use('/images',express.static("upload"))
