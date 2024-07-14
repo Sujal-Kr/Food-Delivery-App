@@ -19,7 +19,7 @@ app.listen(PORT,()=>{
     console.log(`Listening on port ${PORT}`);
 })
 
-app.use('/',(req,res)=>{
+app.get('/',(req,res)=>{
     res.send({
         message:"hello world"
     })
