@@ -14,6 +14,7 @@ app.use(cors());
 
 app.use(cookie())
 
+app.use('/images',express.static("upload"))
 
 app.listen(PORT,()=>{
     console.log(`Listening on port ${PORT}`);
@@ -24,9 +25,10 @@ app.get('/',(req,res)=>{
         message:"hello world"
     })
 })
+
+
 const foodRouter=require('./routes/food.route')
 app.use('/api/food',foodRouter)
-app.use('/images',express.static("upload"))
 
 const userRouter=require('./routes/user.route')
 app.use('/api/user',userRouter)
