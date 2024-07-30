@@ -3,7 +3,8 @@ import axios from "axios";
 export const StoreContext=createContext(null);
 
 function StoreContextProvider({children}) {
-    const url="https://food-delivery-backend-swart.vercel.app"
+    // const url="https://food-delivery-backend-swart.vercel.app"
+    const url="http://localhost:6969"
     const [cartItems, setCartItems] = useState({});
     const [token,setToken]=useState();
     const [foodList,setFoodList] = useState([])
