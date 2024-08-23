@@ -1,5 +1,10 @@
 .header{
-    background-image: url('header_img.png');
+    background-image: url('../../assets/frontend_assets/banner.png');
+    background-color: orange ;
+    background-position: right ;
+    background-size: contain ;
+    background-repeat: no-repeat;
+    
 }
 
 .header-content{

@@ -6,7 +6,8 @@ const Footer = () => {
         <div className='bg-gray-700 text-white p-10 mt-40   '>
             <div className='footer flex flex-wrap gap-10 justify-between py-4'>
                 <div className='flex flex-col gap-4 items-start '>
-                    <img src={assets.logo} alt="" />
+                    {/* <img src={assets.logo} alt="" /> */}
+                    <div className='text-3xl text-orange-500'>QucikBite</div>
                     <p className='max-w-md'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, perspiciatis!</p>
                     <div className="social-icons flex gap-2 flex-wrap">
                         <img src={assets.facebook_icon} alt="" />

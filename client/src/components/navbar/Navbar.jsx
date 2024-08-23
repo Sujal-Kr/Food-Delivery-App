@@ -30,8 +30,9 @@ const Navbar = ({ setShowLogin }) => {
 
   return (
     <nav className='flex justify-between py-6 px-4 sm:px-10 lg:px-40 items-center'>
-      <div className="nav-head">
-        <img src={assets.logo} alt="" />
+      <div className="nav-head text-3xl font-semibold text-orange-500">
+        {/* <img src={assets.logo} alt="" /> */}
+        QuickBite
       </div>
       <div className="nav-list  gap-5 hidden md:flex">
         <Link to='/' onClick={() => setMenu('home')} className={menu === 'home' ? 'active' : ''}>Home</Link>
