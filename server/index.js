@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use(cookie())
 
-app.use('/images',express.static("upload"))
+app.use('/api/images',express.static("upload"))
 
 app.listen(PORT,()=>{
     console.log(`Listening on port ${PORT}`);

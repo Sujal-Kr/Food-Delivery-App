@@ -32,14 +32,14 @@ const Navbar = ({ setShowLogin }) => {
     <nav className='flex justify-between py-6 px-4 sm:px-10 lg:px-40 items-center'>
       <div className="nav-head text-3xl font-semibold text-orange-500">
         {/* <img src={assets.logo} alt="" /> */}
-        QuickBite
+        <Link to='/'>QuickBite</Link>
       </div>
-      <div className="nav-list  gap-5 hidden md:flex">
+      {/* <div className="nav-list  gap-5 hidden md:flex">
         <Link to='/' onClick={() => setMenu('home')} className={menu === 'home' ? 'active' : ''}>Home</Link>
-        <Link to='/menu' onClick={() => setMenu('menu')} className={menu === 'menu' ? 'active' : ''}>Menu</Link>
-        <Link to='/mobile-app' onClick={() => setMenu('app')} className={menu === 'app' ? 'active' : ''}>Mobile App</Link>
-        <Link to='/contact-us' onClick={() => setMenu('contact')} className={menu === 'contact' ? 'active' : ''}>Contact Us</Link>
-      </div>
+        <a href='#menu' onClick={() => setMenu('menu')} className={menu === 'menu' ? 'active' : ''}>Menu</a>
+        <a href='#mobile-app' onClick={() => setMenu('app')} className={menu === 'app' ? 'active' : ''}>Mobile App</a>
+        <a href='#contact-us' onClick={() => setMenu('contact')} className={menu === 'contact' ? 'active' : ''}>Contact Us</a>
+      </div> */}
       <div className="nav-tools flex gap-8 items-center">
         <img src={assets.search_icon} alt="" />
         <div className="cart-icon relative">

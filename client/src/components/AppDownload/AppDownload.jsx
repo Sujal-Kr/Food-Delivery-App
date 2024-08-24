@@ -3,7 +3,7 @@ import { assets } from '../../assets/frontend_assets/assets'
 
 const AppDownload = () => {
   return (
-    <div className='py-12'>
+    <div className='py-20' id="mobile-app">
       <p className='text-center text-4xl'>For Better experince Download <br />QuickBite App</p>
       <div className='flex  flex-wrap items-center justify-center gap-5 py-10'>
         <img src={assets.play_store} alt="" />
