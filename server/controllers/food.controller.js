@@ -1,12 +1,21 @@
 const foodModel = require('../models/food.model')
-const fs = require('fs')
+const cloudinary = require('../util/cloudinary')
+// const fs = require('fs')
 
 const addFood = async (req, res) => {
     try {
 
         const data = req.body;
-        const image = req.file.filename;
-        const food = await foodModel.create({ ...data, image });
+        const path=req.file.path;
+        const result=await cloudinary.uploader.upload(path)
+        
+        if(!result) {
+            return res.json({
+                message: 'Could not upload image',
+                success: false
+            })
+        }
+        const food = await foodModel.create({ ...data, image:result.secure_url,cloudinary_id:result.public_id });
 
         if (food) {
             return res.json({
@@ -57,10 +66,8 @@ const removeFood = async (req, res) => {
         const { id } = req.body;
         const data = await foodModel.findByIdAndDelete(id)
         if (data) {
-            fs.unlink(`upload/${data.image}`, (err) => {
-                if (err) throw new Error(err.message)
-                console.log(`${data.image} Deleted Successfully`)
-            })
+            const result=await cloudinary.uploader.destroy(data.cloudinary_id)
+            console.log(result)
             return res.json({
                 success: true,
                 message: "Food Deleted Successfully",

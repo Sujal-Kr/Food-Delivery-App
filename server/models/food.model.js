@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { cloudinary_js_config } = require('../util/cloudinary');
 
 const foodSchema = new mongoose.Schema({
     name: {
@@ -20,6 +21,9 @@ const foodSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
+    },
+    cloudinary_id:{
+        type: String,
     }
 });
 

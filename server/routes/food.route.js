@@ -4,14 +4,7 @@ const multer = require('multer');
 
 const foodRouter = express.Router();
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './upload');
-    },
-    filename: function (req, file, cb) {
-        cb(null, `${Date.now()}_${file.originalname}`);
-    }
-});
+const storage = multer.diskStorage({});
 
 const upload = multer({ storage });
 
