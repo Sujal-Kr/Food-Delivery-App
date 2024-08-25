@@ -22,7 +22,7 @@ const Cart = () => {
           foodList.map((food, index) => (
             cartItems[food._id] > 0 && (
               <div key={index} className='grid grid-cols-6 gap-4 py-2 place-items-center border-b'>
-                <img className='h-[50%]' src={url+"/images/"+food.image} alt="" />
+                <img className='h-[50%]' src={food.image} alt="" />
                 <p>{food.name}</p>
                 <p>${food.price}</p>
                 <p>{cartItems[food._id]}</p>

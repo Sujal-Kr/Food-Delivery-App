@@ -10,7 +10,7 @@ const FoodItem = ({ food }) => {
     return (
         <div className='food-item shadow rounded-t-xl overflow-hidden '>
             <div className='relative'>
-                <img src={"http://localhost:6969/images/" + food.image} alt="" className='' />
+                <img src={food.image} alt="" className='' />
                 <div className='p-2 absolute right-3 top-36'>
                     {
 
