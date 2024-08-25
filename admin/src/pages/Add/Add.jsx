@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 const Add = () => {
-    const url = 'http://localhost:6969';
+    const url = 'https://food-delivery-backend-swart.vercel.app';
     const [image, setImage] = useState(null);
     const [data, setData] = useState({
         name: "",

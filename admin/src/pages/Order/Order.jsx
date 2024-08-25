@@ -4,13 +4,13 @@ import { assets } from '../../../../client/src/assets/frontend_assets/assets'
 const Order = () => {
   const [data, setData] = useState()
   const fetchAllOrders = async () => {
-    const res = await axios.get('http://localhost:6969/api/order/listorders')
+    const res = await axios.get('https://food-delivery-backend-swart.vercel.app/api/order/listorders')
     if (res.data.success) {
       setData(res.data.data)
     }
   }
   const handleStatusChange=async (id ,status) => {
-    const res=await axios.patch('http://localhost:6969/api/order/status',{id:id,status:status})
+    const res=await axios.patch('https://food-delivery-backend-swart.vercel.app/api/order/status',{id:id,status:status})
     if(res.data.success) {
       fetchAllOrders()
     }

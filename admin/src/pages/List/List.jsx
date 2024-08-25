@@ -3,7 +3,7 @@ import {toast } from 'react-toastify';
 
 import axios from 'axios';
 const List = () => {
-    const url='http://localhost:6969'
+    const url='https://food-delivery-backend-swart.vercel.app'
     const [list,setList]=useState([])
     const [loading,setLoading]=useState(true)
     const fetchList=async()=>{
