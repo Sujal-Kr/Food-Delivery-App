@@ -48,12 +48,11 @@ const List = () => {
         {
             list.map((item,index)=>(
                 <div key={index} className='grid grid-cols-5 gap-4 py-2 place-items-center border-b'>
-                <img className='w-[50%] aspect-square object-cover' src={`${url}/images/${item.image}`} alt="" />
+                <img className='w-[50%] aspect-square object-cover' src={`${item.image}`} alt="" />
                 <p>{item.name}</p>
                 <p>{item.category}</p>
                 <p>${item.price}</p>
                 <button onClick={() =>{handleRemove(item._id)}} className=''>Remove</button>
-                
               </div>
             ))
         }
