@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react'
-import { assets } from '../../assets/frontend_assets/assets'
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import React, { useContext, useState } from 'react'
+import { toast } from 'react-toastify'
+import { assets } from '../../assets/frontend_assets/assets'
 import { StoreContext } from '../../Context/store.context'
 
 const Login = ({ setShowLogin }) => {
@@ -44,7 +43,7 @@ const Login = ({ setShowLogin }) => {
     }
   }
   return (
-    <div className='absolute z-10 w-[80%] h-full grid  text-xs      '>
+    <div className='absolute z-10 w-full  h-full grid  text-xs      '>
       <form action="" onSubmit={handleSubmit} className='w-[333px]  rounded-xl shadow bg-white py-2 px-6  flex  flex-col gap-5 items-center justify-center place-self-center   '>
         <div className='w-full flex justify-between items-center  py-4'>
           <h2 className='font-bold text-xl'>{currState}</h2>
