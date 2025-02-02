@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from 'react'
 import {toast } from 'react-toastify';
-
 import axios from 'axios';
+import { server } from '../../constants/config';
 const List = () => {
-    const url='https://food-delivery-backend-swart.vercel.app'
+    const url=server
     const [list,setList]=useState([])
     const [loading,setLoading]=useState(true)
     const fetchList=async()=>{

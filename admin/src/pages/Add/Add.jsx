@@ -3,9 +3,10 @@ import { assets } from '../../assets/admin_assets/assets';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import { server } from '../../constants/config';
 
 const Add = () => {
-    const url = 'https://food-delivery-backend-swart.vercel.app';
+    const url = server
     const [image, setImage] = useState(null);
     const [data, setData] = useState({
         name: "",

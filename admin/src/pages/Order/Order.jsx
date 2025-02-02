@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { assets } from '../../../../client/src/assets/frontend_assets/assets'
+import { server } from '../../constants/config'
 const Order = () => {
   const [data, setData] = useState()
   const fetchAllOrders = async () => {
-    const res = await axios.get('https://food-delivery-backend-swart.vercel.app/api/order/listorders')
+    const res = await axios.get(`${server}/api/order/listorders`)
     if (res.data.success) {
       setData(res.data.data)
     }
   }
   const handleStatusChange=async (id ,status) => {
-    const res=await axios.patch('https://food-delivery-backend-swart.vercel.app/api/order/status',{id:id,status:status})
+    const res=await axios.patch(`${server}/api/order/status`,{id:id,status:status})
     if(res.data.success) {
       fetchAllOrders()
     }
