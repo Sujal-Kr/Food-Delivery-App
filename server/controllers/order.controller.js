@@ -6,7 +6,8 @@ const stripe = require('stripe')(KEY)
 // placing order from frontend
 
 const placeOrder = async (req, res) => {
-    const url = "https://quickbite-chi.vercel.app"
+    
+    const url= process.env.CLIENT
     const { address, amount, items } = req.body
     const id = req.id
     try {
